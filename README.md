@@ -11,8 +11,10 @@
 | nickname            | string  | null:false                |
 | family_name         | string  | null:false                |
 | given_name          | string  | null:false                |
-| date_of_birth       | integer | null:false                |
-|password_confirmation| interger| null:false                |
+| family_name_read    | string  | null:false                |
+| given_name_read     | string  | null:false                |
+| date_of_birth       | date    | null:false                |
+
 
 ## association ##
 
@@ -26,7 +28,7 @@
 
 | Column                 | Type      | Options                       |
 | -----------------------| --------- | ------------------------------|
-| price                  | string    |null:false                     |
+| price                  | interger  |null:false                     |
 | image                  | text      |null:false                     |
 | user_id                | references|null:false,foreign_key: true   |
 | product_name           | string    |null:fals                      |
@@ -39,12 +41,12 @@
 
 ## association ##
 
-- has_one: bought-item
+- has_one: bought_item
 - belongs_to: user
 
 
 
-## bought-items ## who and what item bought
+## bought-items ## 
 
 | Column             | Type   | Options                      |
 | ------------------ | ------ | -----------------------------|
@@ -53,22 +55,22 @@
 
 ## association ##
 
-- has_one:deliver-information
+-has_one:deliver_information
 
 
 
 
 ## deliver-informations ##
 
-| Column       | Type     | Options     |
-| -------------| -------- | ------------|
-| prifecture   | string   | null: false |
-| city         | text     | null: false |
-| post_code    | integer  | null:false  |
-| adress       | string   | null:false  |
-| building     | string   |             |
-| phone_number | string   | null:false  |
+| Column       | Type     | Options                    |
+| -------------| -------- | ---------------------------|
+| prifecture   | string   | null: false                |
+| city         | string   | null: false                |
+| post_code    | string   | null:false                 |
+| address      | string   | null:false                 |
+| building     | string   |                            |
+| phone_number | string   | null:false                 |
+| products     | interger | null:false,foreign_key:true|
 
 
 ## association ##
-belongs_to:user
