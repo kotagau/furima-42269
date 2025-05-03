@@ -46,7 +46,7 @@
 
 
 
-## bought-items ## 
+## bought_items ## 
 
 | Column             | Type   | Options                      |
 | ------------------ | ------ | -----------------------------|
@@ -60,7 +60,7 @@
 
 
 
-## deliver-informations ##
+## deliver_informations ##
 
 | Column       | Type     | Options                    |
 | -------------| -------- | ---------------------------|
@@ -70,7 +70,8 @@
 | address      | string   | null:false                 |
 | building     | string   |                            |
 | phone_number | string   | null:false                 |
-| products     | interger | null:false,foreign_key:true|
+| bought_items | interger | null:false,foreign_key:true|
+
 
 
 ## association ##
