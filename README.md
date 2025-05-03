@@ -18,7 +18,7 @@
 
 ## association ##
 
-- has_many: bought-items
+- has_many: bought_items
 - has_many: products
 
 
@@ -28,10 +28,10 @@
 
 | Column                 | Type      | Options                       |
 | -----------------------| --------- | ------------------------------|
-| price                  | interger  |null:false                     |
-| user                   | references|null:false,foreign_key: true   |
-| product_name           | string    |null:fals                      |
-| product_explanation    | string    |null:false                     |
+| price                  | text      |null:false                     |
+| user                   | text      |null:false,foreign_key: true   |
+| product_name           | text      |null:fals                      |
+| product_explanation    | text      |null:false                     |
 | product_category_id    | interger  |null:false                     |
 | product_status_id      | interger  |null:false                     |
 | deliver_fee_payment_id | interger  |null:fale                      |
@@ -56,7 +56,7 @@
 
 -has_one:deliver_information
 -belongs_to:user
-has_one:product
+belongs_to:product
 
 
 
@@ -71,5 +71,7 @@ has_one:product
 | building     | string     |                            |
 | phone_number | string     | null:false                 |
 | bought_item  | references | null:false,foreign_key:true|
+|city          | string     | null:false                 |
 
 ## association ##
+belongs_to:bought_item
