@@ -28,15 +28,15 @@
 
 | Column                 | Type      | Options                       |
 | -----------------------| --------- | ------------------------------|
-| price                  | text      |null:false                     |
-| user                   | text      |null:false,foreign_key: true   |
-| product_name           | text      |null:fals                      |
+| price                  | string    |null:false                     |
+| user                   | string    |null:false,foreign_key: true   |
+| product_name           | string    |null:false                     |
 | product_explanation    | text      |null:false                     |
-| product_category_id    | interger  |null:false                     |
-| product_status_id      | interger  |null:false                     |
-| deliver_fee_payment_id | interger  |null:fale                      |
-| prefecture_id          | interger  |null:false                     |
-| deliver_day_id         | interger  |null:false                     |
+| product_category_id    | integer  |null:false                     |
+| product_status_id      | integer  |null:false                     |
+| deliver_fee_payment_id | integer  |null:fale                      |
+| prefecture_id          | integer  |null:false                     |
+| deliver_day_id         | integer  |null:false                     |
 
 ## association ##
 
@@ -65,7 +65,7 @@ belongs_to:product
 
 | Column       | Type       | Options                    |
 | -------------| -----------| ---------------------------|
-| prefecture_id| interger   | null: false                |
+| prefecture_id| integer   | null: false                |
 | post_code    | string     | null:false                 |
 | address      | string     | null:false                 |
 | building     | string     |                            |
