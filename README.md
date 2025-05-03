@@ -29,15 +29,14 @@
 | Column                 | Type      | Options                       |
 | -----------------------| --------- | ------------------------------|
 | price                  | interger  |null:false                     |
-| image                  | text      |null:false                     |
 | user_id                | references|null:false,foreign_key: true   |
-| product_name           | string    |null:fals                      |
-| product_explanation    | text      |null:false                     |
-| product_category       | string    |null:false                     |
-| product_status         | string    |null:false                     |
-| deliver_fee_payment    | string    |null:fale                      |
-| deliver_from           | string    |null:false                     |
-| deliver_day            | string    |null:false                     |
+| product_name_id        | interger  |null:fals                      |
+| product_explanation_id | interger  |null:false                     |
+| product_category_id    | interger  |null:false                     |
+| product_status_id      | interger  |null:false                     |
+| deliver_fee_payment_id | interger  |null:fale                      |
+| prifecture_id          | interger  |null:false                     |
+| deliver_day_id         | interger  |null:false                     |
 
 ## association ##
 
@@ -48,30 +47,29 @@
 
 ## bought_items ## 
 
-| Column             | Type   | Options                      |
-| ------------------ | ------ | -----------------------------|
-| products           | string | null: false,foreign_key:true |
-| user               | string | null: false,foreign_key:true |
+| Column             | Type       | Options                      |
+| ------------------ | ---------- | -----------------------------|
+| product            | references | null: false,foreign_key:true |
+| user               | references | null: false,foreign_key:true |
 
 ## association ##
 
 -has_one:deliver_information
+-belongs_to:user
 
 
 
 
 ## deliver_informations ##
 
-| Column       | Type     | Options                    |
-| -------------| -------- | ---------------------------|
-| prifecture   | string   | null: false                |
-| city         | string   | null: false                |
-| post_code    | string   | null:false                 |
-| address      | string   | null:false                 |
-| building     | string   |                            |
-| phone_number | string   | null:false                 |
-| bought_items | interger | null:false,foreign_key:true|
-
-
+| Column       | Type       | Options                    |
+| -------------| -----------| ---------------------------|
+| prifecture_id| interger   | null: false                |
+| post_code    | string     | null:false                 |
+| address      | string     | null:false                 |
+| building     | string     |                            |
+| phone_number | string     | null:false                 |
+| bought_item  | references | null:false,foreign_key:true|
 
 ## association ##
+has_one:bought_item
