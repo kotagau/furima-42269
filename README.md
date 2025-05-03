@@ -29,13 +29,13 @@
 | Column                 | Type      | Options                       |
 | -----------------------| --------- | ------------------------------|
 | price                  | interger  |null:false                     |
-| user_id                | references|null:false,foreign_key: true   |
-| product_name_id        | interger  |null:fals                      |
-| product_explanation_id | interger  |null:false                     |
+| user                   | references|null:false,foreign_key: true   |
+| product_name           | string    |null:fals                      |
+| product_explanation    | string    |null:false                     |
 | product_category_id    | interger  |null:false                     |
 | product_status_id      | interger  |null:false                     |
 | deliver_fee_payment_id | interger  |null:fale                      |
-| prifecture_id          | interger  |null:false                     |
+| prefecture_id          | interger  |null:false                     |
 | deliver_day_id         | interger  |null:false                     |
 
 ## association ##
@@ -56,6 +56,7 @@
 
 -has_one:deliver_information
 -belongs_to:user
+has_one:product
 
 
 
@@ -64,7 +65,7 @@
 
 | Column       | Type       | Options                    |
 | -------------| -----------| ---------------------------|
-| prifecture_id| interger   | null: false                |
+| prefecture_id| interger   | null: false                |
 | post_code    | string     | null:false                 |
 | address      | string     | null:false                 |
 | building     | string     |                            |
@@ -72,4 +73,3 @@
 | bought_item  | references | null:false,foreign_key:true|
 
 ## association ##
-has_one:bought_item
