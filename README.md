@@ -29,7 +29,7 @@
 | Column                 | Type      | Options                       |
 | -----------------------| --------- | ------------------------------|
 | price                  | integer   |null:false                     |
-| user                   | reference |null:false,foreign_key: true   |
+| user                   | references|null:false,foreign_key: true   |
 | product_name           | string    |null:false                     |
 | product_explanation    | text      |null:false                     |
 | product_category_id    | integer  |null:false                     |
