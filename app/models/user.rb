@@ -4,12 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname         , presense:true
-  validates :family_name      , presense:true
-  validates :given_name       , presense:true
-  validates :family_name_read , presense:true
-  validates :given_name_read  , presense:true
-  validates :date_of_birth    , presense:true
-  
+  validates :nickname         , presence:true
+  validates :family_name      , presence:true
+  validates :family_name_read , presence:true
+  validates :given_name_read  , presence:true
+  validates :date_of_birth    , presence:true
+
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角文字を使用してください' } do
+    validates :given_name
+    validates :given_name_read
+  end
+
+
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' 
+
 
 end
