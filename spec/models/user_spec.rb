@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
 
 
     it "passwordが空では登録できない" do
-      user = FactoryBot.build(:user)
+      
       @user.password = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Password can't be blank")
@@ -82,7 +82,7 @@ RSpec.describe User, type: :model do
 
 
     it"password_confirmationがpasswordと一致しない" do
-      user = FactoryBot.build(:user)
+      
       @user.password_confirmation= ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
@@ -91,7 +91,7 @@ RSpec.describe User, type: :model do
 
 
     it"nicknameが空では登録できない" do
-      user = FactoryBot.build(:user)
+      
       @user.nickname= ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
@@ -101,46 +101,48 @@ RSpec.describe User, type: :model do
 
 
     it"family_nameが空では登録できない" do
-      user = FactoryBot.build(:user)
+      
       @user.family_name= ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Family name can't be blank")
     end
 
       it"family_nameが漢字・ひらがな・カタカナ以外だと登録出来ない" do
-        user = FactoryBot.build(:user)
+        
         @user.family_name= 'aaaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Only full-width japanese letter is available")
+        expect(@user.errors.full_messages).to include("Family name full_width only for given_name and given_name")
       end
 
 
 
     it"family_name_readが空では登録できない" do
-      user = FactoryBot.build(:user)
+      
       @user.family_name_read= ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Family name read can't be blank")
     end
 
+
+
     it"family_name_readが漢字・ひらがな・カタカナ以外だと登録できない" do
-        user = FactoryBot.build(:user)
         @user.family_name_read= 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("only full-width japanese letter is available")
+        expect(@user.errors.full_messages).to include("Family name read full_width only for given_name and given_name")
     end
 
 
 
+
     it"given_nameが空では登録できない" do
-      user = FactoryBot.build(:user)
+      
       @user.given_name = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include("Given name can't be blank", "Given name full_width only for given_name and given_name")
+      expect(@user.errors.full_messages).to include("Given name can't be blank")
       end
 
     it"given_nameがカタカナ以外だと登録できない" do
-        user = FactoryBot.build(:user)
+        
         @user.given_name = 'aaaaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Given name full_width only for given_name and given_name")
@@ -149,14 +151,14 @@ RSpec.describe User, type: :model do
    
 
     it"given_name_readが空では登録できない" do
-      user = FactoryBot.build(:user)
+      
       @user.given_name_read = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Given name read can't be blank")
     end
 
     it"given_name_readがカタカナ以外だと登録できない" do
-        user = FactoryBot.build(:user)
+        
         @user.given_name_read = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Given name read full_width only for given_name and given_name")
@@ -164,7 +166,7 @@ RSpec.describe User, type: :model do
 
 
     it"date_of_birthが空では登録できない" do
-      user = FactoryBot.build(:user)
+    
       @user.date_of_birth = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Date of birth can't be blank")
