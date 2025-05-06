@@ -6,8 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname         , presence:true
   validates :date_of_birth    , presence:true
-  validates :password         , presence:true
-  validates :password_confirmation, presence:true
+
 
   with_options presence: true, format: { with: /\A[ァ-ヶー－]+\z/, message: 'full_width only for given_name and given_name' } do
     validates :given_name
