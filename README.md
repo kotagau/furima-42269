@@ -34,7 +34,7 @@
 | product_explanation    | text      |null:false                      |
 | product_category_id    | integer   |null:false                      |
 | product_status_id      | integer   |null:false                      |
-| deliver_fee_payment_id | integer   |null:fale                       |
+| deliver_fee_payment_id | integer   |null:false                       |
 | prefecture_id          | integer   |null:false                      |
 | deliver_day_id         | integer   |null:false                      |
 

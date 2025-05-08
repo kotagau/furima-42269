@@ -1,4 +1,4 @@
-class product_status_id < ActiveHash::Base
+class ProductStatus < ActiveHash::Base
   self.data = [
 
     { id: 1, name: '---' },
@@ -11,4 +11,9 @@ class product_status_id < ActiveHash::Base
 
   ]
 
+
+  include ActiveHash::Associations
+  has_many :items
+
+  
  end
