@@ -10,17 +10,28 @@ class Item < ApplicationRecord
   belongs_to :deliver_day 
 
 
-# validates :price                  , presence:true , 
-# validates :user                   , presence:true , foreign_key_:true
-# validates :product_name           , presence:true
-# validates :product_explanation    , presence:true
-# validates :product_category_id    , presence:true , numericality: { other_than: 1 } 
-# validates :product_status_id      , presence:true , numericality: { other_than: 1 } 
-# validates :deliver_fee_payment_id , presence:true , numericality: { other_than: 1 } 
-# validates :prefecture_id          , presence:true , numericality: { other_than: 1 } 
-# validates :deliver_day_id         , presence:true , numericality: { other_than: 1 } 
+
+  with_options presence: true do
+    validates :price
+    validates :user
+    validates :product_name
+    validates :product_explanation
+  end
+
+
+  with_options presence: true,numericality: { other_than: 1 } do
+  validates :product_category_id 
+  validates :product_status_id
+  validates :deliver_fee_payment_id 
+  validates :prefecture_id 
+  validates :deliver_day_id         
+  end
+
+ validates :price, presence: true,
+ format: { with: /\A[0-9]+\z/, message: "は半角数字のみで入力してください" },
+ numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+
+
 
 
 end
-
-
