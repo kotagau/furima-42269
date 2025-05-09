@@ -18,11 +18,11 @@ class Item < ApplicationRecord
 
 
   with_options presence: true,numericality: { other_than: 1 } do
-  validates :product_category_id 
-  validates :product_status_id
-  validates :deliver_fee_payment_id 
-  validates :prefecture_id 
-  validates :deliver_day_id         
+    validates :product_category_id 
+    validates :product_status_id
+    validates :deliver_fee_payment_id 
+    validates :prefecture_id 
+    validates :deliver_day_id         
   end
 
  validates :price, presence: true,
