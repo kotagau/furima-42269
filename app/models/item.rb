@@ -31,6 +31,6 @@ class Item < ApplicationRecord
 
 
  validates :product_name, presence: true, length: { maximum: 40 }
- validates :product_explanation , presence:true , length: {maximum:1000}
+ validates :product_explanation , presence:true , length: { maximum: 1000 }
 
 end
