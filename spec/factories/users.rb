@@ -9,7 +9,7 @@ FactoryBot.define do
     given_name{"ソラノ"}
     given_name_read{"タロウ"}
     date_of_birth {Faker::Date.birthday}
-    # { Date.new(1990, 1, 1) }
+    
   end
 
 end

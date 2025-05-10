@@ -24,19 +24,19 @@
 
 
 
-## products ##
+## items ##
 
-| Column                 | Type      | Options                       |
-| -----------------------| --------- | ------------------------------|
-| price                  | integer   |null:false                     |
-| user                   | references|null:false,foreign_key: true   |
-| product_name           | string    |null:false                     |
-| product_explanation    | text      |null:false                     |
-| product_category_id    | integer  |null:false                     |
-| product_status_id      | integer  |null:false                     |
-| deliver_fee_payment_id | integer  |null:fale                      |
-| prefecture_id          | integer  |null:false                     |
-| deliver_day_id         | integer  |null:false                     |
+| Column                 | Type      | Options                        |
+| -----------------------| --------- | ------------------------------ |
+| price                  | integer   |null:false                      |
+| user                   | references|null:false,foreign_key: true    |
+| product_name           | string    |null:false                      |
+| product_explanation    | text      |null:false                      |
+| product_category_id    | integer   |null:false                      |
+| product_status_id      | integer   |null:false                      |
+| deliver_fee_payment_id | integer   |null:false                       |
+| prefecture_id          | integer   |null:false                      |
+| deliver_day_id         | integer   |null:false                      |
 
 ## association ##
 
