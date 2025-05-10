@@ -31,7 +31,7 @@ context '新規登録できない場合' do
 
 
     it 'product_nameは40字以上では登録できない'do
-        @item.product_name ="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        @item.product_name ="a"*41
         @item.valid?
         expect(@item.errors.full_messages).to include("Product name is too long (maximum is 40 characters)")
    end
@@ -109,6 +109,14 @@ context '新規登録できない場合' do
    @item.valid?
    expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
    end
+
+   it"priceが全角数字では保存できない" do
+    @item.price="１００００"
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Price is not a number")
+   end
+
+
 
   end
 end

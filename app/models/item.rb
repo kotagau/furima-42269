@@ -25,9 +25,7 @@ class Item < ApplicationRecord
     validates :deliver_day_id         
   end
 
- validates :price, presence: true,
- format: { with: /\A[0-9]+\z/, message: "は半角数字のみで入力してください" },
- numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+ validates :price, presence: true,numericality:{ only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
 
 
  validates :product_name, presence: true, length: { maximum: 40 }
