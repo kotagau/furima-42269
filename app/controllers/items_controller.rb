@@ -28,15 +28,15 @@ before_action :authenticate_user!, except:[:index,:show]
   end
 
 
-  def edit
-    @item = Item.find(params[:id])
-  end
+  # def edit
+  #   @item = Item.find(params[:id])
+  # end
 
-  def delete
-    @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to root_path
-  end
+  # def delete
+  #   @item = Item.find(params[:id])
+  #   @item.destroy
+  #   redirect_to root_path
+  # end
 
 
 
