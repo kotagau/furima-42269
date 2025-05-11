@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   
-before_action :authenticate_user!, except:[:index,:show]
+before_action :authenticate_user!, except:[:index,:show,:edit,:update]
 
 
   def index
@@ -28,9 +28,17 @@ before_action :authenticate_user!, except:[:index,:show]
   end
 
 
-  # def edit
-  #   @item = Item.find(params[:id])
-  # end
+  def edit
+    @item = Item.find(params[:id])
+    
+  end
+
+  def update
+    @item=Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to item_path
+  end
+
 
   # def delete
   #   @item = Item.find(params[:id])
