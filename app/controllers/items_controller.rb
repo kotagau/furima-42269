@@ -24,12 +24,11 @@ before_action :item_find,only:[:show,:edit,:update]
 
 
   def show
-  @item=Item.find(params[:id])
+  
   end
 
 
   def edit
-    @item = Item.find(params[:id])
       if current_user.id == @item.user.id
          edit_item_path
       else
@@ -38,7 +37,6 @@ before_action :item_find,only:[:show,:edit,:update]
   end
 
   def update
-    @item=Item.find(params[:id])
     if @item.update(item_params)
         redirect_to item_path
     else
