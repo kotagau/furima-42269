@@ -46,14 +46,14 @@ before_action :item_find,only:[:show,:edit,:update,:destroy]
 
 
   def destroy
-    if user user_signed_in?
+    
       if current_user.id == @item.user.id
           @item.destroy
           redirect_to root_path
       else
          redirect_to root_path
       end
-    end
+
   end
 
 
