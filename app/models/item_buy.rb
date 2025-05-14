@@ -1,24 +1,45 @@
 class ItemBuy
 
-include ActiveModel::ActiveModel
+include ActiveModel::Model
 
-# attr_accessor :item,:user,:prefecture_id,:post_code,:address,:building,:phone_number,:bought_item,:city
+attr_accessor :prefecture_id,:post_code,:address,:building,:phone_number,:bought_item,:city,:item_id,:user_id,:token
 
-#   with_options presence: true do
-#     validates :prefecture_id
-#     validates :post_code
-#     validates :address
-#     validates :phone_number
-#     validates :city
-#   end
 
-# validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "only half-width. Include hyphen(-)"}
 
-# validates :phone_number, format: {with: /\A[0-9]\z/,maximum_length:11}
+  with_options presence: true do
+    validates :prefecture_id
+    validates :post_code
+    validates :address
+    validates :phone_number
+    validates :city
+    validates :user_id
+    validates :item_id
+  end
+
+  with_options presence: true,numericality: { other_than: 1 } do
+   validates :prefecture_id
+  end
+
+
+
+
+validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "only half-width. Include hyphen(-)"}
+
+validates :phone_number, format: {with:/\A\d{10,11}\z/, message: 'は10桁または11桁の半角数字で入力してください' }
+
+
+
+
+
+
+
+
+
+
 
 
     def save
       @bought_item = BoughtItem.create(item_id: item_id, user_id: user_id)
-      @deliver_information=DeliverInformation.create(post_code: post_code, prefecture_id: prefecture_id, city: city, phone_number: phone_number, building: building, address: address , bought_item_id:bought_item_id,)
+      DeliverInformation.create(post_code: post_code, prefecture_id: prefecture_id, city: city, phone_number: phone_number, building: building, address: address , bought_item_id:@bought_item.id)
     end
 end

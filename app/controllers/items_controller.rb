@@ -15,6 +15,7 @@ before_action :item_find,only:[:show,:edit,:update,:destroy]
 
   def create
     @item=Item.new(item_params)
+   
     if @item.save
       redirect_to root_path
     else
@@ -24,16 +25,23 @@ before_action :item_find,only:[:show,:edit,:update,:destroy]
 
 
   def show
-  
+ 
+
   end
 
 
   def edit
-      if current_user.id == @item.user.id
+    if @item.bought_item.present?
+      redirect_to root_path
+    else
+
+    end
+
+    if current_user.id == @item.user.id
          edit_item_path
-      else
+    else
         redirect_to root_path
-      end
+    end
   end
 
   def update
