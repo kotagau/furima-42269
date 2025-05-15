@@ -24,11 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    to_top if @item.bought_item.present?
-
-    if current_user.id == @item.user.id
-      edit_item_path
-    else
+    if @item.bought_item.present?||current_user.id != @item.user.id
       to_top
     end
   end
