@@ -49,14 +49,14 @@
 
 | Column             | Type       | Options                      |
 | ------------------ | ---------- | -----------------------------|
-| product            | references | null: false,foreign_key:true |
+| item               | references | null: false,foreign_key:true |
 | user               | references | null: false,foreign_key:true |
 
 ## association ##
 
 -has_one:deliver_information
 -belongs_to:user
-belongs_to:product
+belongs_to:item
 
 
 
@@ -65,13 +65,13 @@ belongs_to:product
 
 | Column       | Type       | Options                    |
 | -------------| -----------| ---------------------------|
-| prefecture_id| integer   | null: false                |
+| prefecture_id| integer    | null: false                |
 | post_code    | string     | null:false                 |
 | address      | string     | null:false                 |
 | building     | string     |                            |
 | phone_number | string     | null:false                 |
 | bought_item  | references | null:false,foreign_key:true|
-|city          | string     | null:false                 |
+| city         | string     | null:false                 |
 
 ## association ##
 belongs_to:bought_item
