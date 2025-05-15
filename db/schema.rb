@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_12_085156) do
   end
 
   create_table "bought_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "user_id"
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_bought_items_on_item_id"
@@ -52,9 +52,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_12_085156) do
     t.integer "prefecture_id", null: false
     t.string "post_code", null: false
     t.string "address", null: false
-    t.string "building", null: false
+    t.string "building"
     t.string "phone_number", null: false
-    t.bigint "bought_item_id"
+    t.bigint "bought_item_id", null: false
     t.string "city", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

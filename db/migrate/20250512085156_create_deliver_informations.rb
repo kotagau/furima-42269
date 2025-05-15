@@ -4,9 +4,9 @@ class CreateDeliverInformations < ActiveRecord::Migration[7.1]
       t.integer    :prefecture_id  ,null:false
       t.string     :post_code      ,null:false
       t.string     :address         ,null:false
-      t.string     :building       ,null:false
+      t.string     :building
       t.string     :phone_number   ,null:false
-      t.references :bought_item    ,foreign_key:true
+      t.references :bought_item    ,foreign_key:true,null:false
       t.string     :city           ,null:false
 
       t.timestamps
