@@ -12,11 +12,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
       t.date    :date_of_birth         , null:false
       t.string  :email                 , null: false, default: ""
       t.string  :encrypted_password    , null: false, default: ""
-      t.integer :deliver_day_id        , null:false
-      t.integer :deliver_fee_payment_id, null:false
-      t.integer :prefecture_id         , null:false
-      t.integer :product_category_id   , null:false
-      t.integer :product_status_id     , null:false
+
+
 
 
       ## Recoverable

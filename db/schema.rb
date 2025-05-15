@@ -85,11 +85,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_15_080627) do
     t.date "date_of_birth", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "deliver_day_id", null: false
-    t.integer "deliver_fee_payment_id", null: false
-    t.integer "prefecture_id", null: false
-    t.integer "product_category_id", null: false
-    t.integer "product_status_id", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
