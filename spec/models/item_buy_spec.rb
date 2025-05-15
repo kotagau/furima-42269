@@ -88,7 +88,7 @@ RSpec.describe ItemBuy, type: :model do
       it 'tokenが空では保存できない' do
         @item_buy.token = ''
         @item_buy.valid?
-        expect(@item_buy.errors.full_messages).to include("token can't be blank")
+        expect(@item_buy.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
