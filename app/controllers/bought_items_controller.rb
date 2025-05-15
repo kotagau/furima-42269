@@ -4,13 +4,13 @@ class BoughtItemsController < ApplicationController
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
-    if current_user.id == @item.user.id
+
+    if current_user.id == @item.user.id||@item.bought_item.present?
       redirect
-    else
-      @bought_item = ItemBuy.new
     end
-    return unless @item.bought_item.present?
-    redirect
+
+    @bought_item = ItemBuy.new
+
   end
 
   def create
